@@ -12,3 +12,18 @@ step "run-a-script" {
         worker_pool = "default-worker-pool-1"
     }
 }
+
+step "run-a-script2" {
+    name = "Run a Script2"
+
+    action {
+        action_type = "Octopus.Script"
+        properties = {
+            Octopus.Action.RunOnServer = "true"
+            Octopus.Action.Script.ScriptBody = "echo \"test\""
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "PowerShell"
+        }
+        worker_pool = "default-worker-pool-1"
+    }
+}
